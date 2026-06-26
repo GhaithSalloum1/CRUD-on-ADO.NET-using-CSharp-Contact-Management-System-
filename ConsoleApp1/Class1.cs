@@ -201,8 +201,45 @@ public class Class1
 
     }
 
+    static void inStatement(string range)
+    {
+        SqlConnection connection = new SqlConnection("Server=.;Database=ContactsDB;User Id=sa;Password=sa123456;");
+
+        string query = @"DELETE FROM Contacts WHERE ContactID IN (" + range + ")";
+
+        SqlCommand cmd = new SqlCommand(query, connection);
+
+      
+            connection.Open();
 
 
+
+            try
+            {
+                int affectedRaws = cmd.ExecuteNonQuery();
+
+            if (affectedRaws > 0)
+            {
+                Console.WriteLine("Success");
+            }
+            else
+            {
+                Console.WriteLine("Failed");
+            }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+
+        connection.Close();
+
+
+
+        
+    }
 
 
     static void Main(string[] args)
@@ -217,11 +254,10 @@ public class Class1
             CountryID = 1
 
         };
-        
-        insertContact(contact);
 
-        PrintAllContacts();
+        //PrintAllContacts();
 
+        inStatement("6,7,8,9,10");
 
     }
 }

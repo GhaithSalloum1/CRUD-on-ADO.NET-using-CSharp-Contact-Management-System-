@@ -6,3 +6,11 @@ C:\Users\Ghaith\Desktop\Factory-Simulation-System\ConsoleApp1\obj\Debug\ConsoleA
 C:\Users\Ghaith\Desktop\Factory-Simulation-System\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\Users\Ghaith\Desktop\Factory-Simulation-System\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
 C:\Users\Ghaith\Desktop\Factory-Simulation-System\ConsoleApp1\obj\Debug\ConsoleApp1.exe.config
+C:\Users\Ghaith\Desktop\VisualStudio\CRUD-on-ADO.NET-using-CSharp-Contact-Management-System-\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Ghaith\Desktop\VisualStudio\CRUD-on-ADO.NET-using-CSharp-Contact-Management-System-\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Ghaith\Desktop\VisualStudio\CRUD-on-ADO.NET-using-CSharp-Contact-Management-System-\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Ghaith\Desktop\VisualStudio\CRUD-on-ADO.NET-using-CSharp-Contact-Management-System-\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\Ghaith\Desktop\VisualStudio\CRUD-on-ADO.NET-using-CSharp-Contact-Management-System-\ConsoleApp1\obj\Debug\ConsoleApp1.exe.config
+C:\Users\Ghaith\Desktop\VisualStudio\CRUD-on-ADO.NET-using-CSharp-Contact-Management-System-\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Ghaith\Desktop\VisualStudio\CRUD-on-ADO.NET-using-CSharp-Contact-Management-System-\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Ghaith\Desktop\VisualStudio\CRUD-on-ADO.NET-using-CSharp-Contact-Management-System-\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
