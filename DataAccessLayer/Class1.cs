@@ -8,13 +8,13 @@ using System.Runtime.InteropServices;
 
 public class Class1
 {
-  
+
 
     static void PrintAllContacts()
     {
-        
+
         SqlConnection connection = new SqlConnection("Server=.;Database=ContactsDB;User Id=sa;Password=sa123456;");
-        
+
         string query = "SELECT * FROM Contacts";
 
         SqlCommand command = new SqlCommand(query, connection);
@@ -55,16 +55,16 @@ public class Class1
 
 
     }
-  
+
     struct stContact
     {
-       public int ContactID { get; set; }
-       public string FirstName { get; set; }
-       public string LastName { get; set; }
-       public string Email { get; set; }
-       public string Phone { get; set; }
-       public string Address { get; set; }
-       public int CountryID { get; set; }
+        public int ContactID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public int CountryID { get; set; }
     }
 
     static void insertContact(stContact contact)
@@ -76,7 +76,7 @@ public class Class1
                       VALUES (@FirstName, @LastName, @Email, @Phone, @Address, @CountryID)
                       SELECT SCOPE_IDENTITY()";
 
-       SqlCommand command= new SqlCommand(query, connection);
+        SqlCommand command = new SqlCommand(query, connection);
 
         command.Parameters.AddWithValue("@FirstName", contact.FirstName);
         command.Parameters.AddWithValue("@LastName", contact.LastName);
@@ -209,14 +209,14 @@ public class Class1
 
         SqlCommand cmd = new SqlCommand(query, connection);
 
-      
-            connection.Open();
+
+        connection.Open();
 
 
 
-            try
-            {
-                int affectedRaws = cmd.ExecuteNonQuery();
+        try
+        {
+            int affectedRaws = cmd.ExecuteNonQuery();
 
             if (affectedRaws > 0)
             {
@@ -227,18 +227,18 @@ public class Class1
                 Console.WriteLine("Failed");
             }
 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                throw;
-            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            throw;
+        }
 
         connection.Close();
 
 
 
-        
+
     }
 
 
