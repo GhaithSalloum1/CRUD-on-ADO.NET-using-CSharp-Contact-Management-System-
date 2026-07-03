@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5B9AF34C-E831-4010-8E61-9A7A5A1A849C}</ProjectGuid>
+    <ProjectGuid>{F3365183-2EEC-4A4C-88D9-999EBEB2B7FB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Contacts_PresentationLayer</RootNamespace>
-    <AssemblyName>Contacts-PresentationLayer</AssemblyName>
+    <RootNamespace>ContactsDataAccessLayer</RootNamespace>
+    <AssemblyName>ContactsDataAccessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,13 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DataBaseAccessInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ContactsBusinessLayer\ContactsBusinessLayer.csproj">
-      <Project>{523ba48f-78eb-43e5-9183-2273a6710146}</Project>
-      <Name>ContactsBusinessLayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
