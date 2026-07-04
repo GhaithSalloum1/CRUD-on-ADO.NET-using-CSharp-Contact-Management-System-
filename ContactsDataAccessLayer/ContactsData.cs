@@ -10,7 +10,7 @@ using System.Data;
 
 namespace ContactsDataAccessLayer
 {
-    public class Class1
+    public class ContactsData
     {
 
 
@@ -60,6 +60,8 @@ namespace ContactsDataAccessLayer
                 {
                     isFound = false;
                 }
+
+                Reader.Close(); 
 
 
             }
@@ -250,6 +252,42 @@ namespace ContactsDataAccessLayer
                 connection.Close();
             }
             return dt;
+        }
+
+        public static bool isContactExists(int ContactID)
+        {
+            bool isExist = false;
+
+            SqlConnection connection = new SqlConnection(DataBaseAccessInfo.connectionString);
+
+            string query = @"SELECT 1 FROM Contacts Where ContactID = @ContactID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ContactID", ContactID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                isExist = reader.HasRows;  
+
+                reader.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isExist;
         }
 
     }

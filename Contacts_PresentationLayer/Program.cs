@@ -95,10 +95,19 @@ namespace Contacts_PresentationLayer
         
         }
         
+        static void isContactExist(int ID)
+        {
+            if (clsContact.isContactExists(ID))
+                Console.WriteLine("Contact Exists.");
+            else
+                Console.WriteLine("Contact Does Not Exist.");
+        }
+
         static void Main(string[] args)
         {
 
-            testGetAllContacts();
+            isContactExist(1);
+            isContactExist(100);
             Console.ReadKey();
 
         }

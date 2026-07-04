@@ -120,5 +120,10 @@ namespace ContactsBusinessLayer
                        return Class1.GetAllContacts();
         }
 
+        public static bool isContactExists(int ContactID)
+        {
+            return Class1.isContactExists(ContactID);
+        }
+
     }
 }
