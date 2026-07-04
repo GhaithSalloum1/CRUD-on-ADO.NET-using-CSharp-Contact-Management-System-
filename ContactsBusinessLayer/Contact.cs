@@ -67,7 +67,7 @@ namespace ContactsBusinessLayer
             DateTime DateOfBirth = DateTime.Now;
             int CountryID = -1;
 
-            if (ContactsDataAccessLayer.Class1.GetContactByID(ID, ref FirstName, ref LastName, ref Email,
+            if (ContactsDataAccessLayer.ContactsData.GetContactByID(ID, ref FirstName, ref LastName, ref Email,
                 ref Phone, ref Address, ref DateOfBirth, ref CountryID, ref ImagePath))
             {
                 return new clsContact(ID, FirstName, LastName, Email, Phone,
@@ -78,7 +78,7 @@ namespace ContactsBusinessLayer
 
         private bool _AddNewContact()
         {
-            this.ID = ContactsDataAccessLayer.Class1.AddNewContact(this.FirstName, this.LastName, this.Email,
+            this.ID = ContactsDataAccessLayer.ContactsData.AddNewContact(this.FirstName, this.LastName, this.Email,
                 this.Phone, this.Address, this.DateOfBirth, this.CountryID, this.ImagePath);
 
             return ID != -1;
@@ -87,7 +87,7 @@ namespace ContactsBusinessLayer
 
         private bool _UpdateContact()
         {
-            return ContactsDataAccessLayer.Class1.UpdateContact(this.ID, this.FirstName, this.LastName, 
+            return ContactsDataAccessLayer.ContactsData.UpdateContact(this.ID, this.FirstName, this.LastName, 
                 this.Email, this.Phone, this.Address, this.DateOfBirth, this.CountryID, this.ImagePath);
         }
         public bool Save()
@@ -112,17 +112,17 @@ namespace ContactsBusinessLayer
 
         public static bool DeleteContact(int ContactID)
         {
-            return Class1.DeleteContact(ContactID);
+            return ContactsData.DeleteContact(ContactID);
         }
 
         public static DataTable GetAllContacts()
         {
-                       return Class1.GetAllContacts();
+                       return ContactsData.GetAllContacts();
         }
 
         public static bool isContactExists(int ContactID)
         {
-            return Class1.isContactExists(ContactID);
+            return ContactsData.isContactExists(ContactID);
         }
 
     }
