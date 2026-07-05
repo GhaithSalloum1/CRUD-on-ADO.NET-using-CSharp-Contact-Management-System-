@@ -234,7 +234,7 @@ namespace ContactsDataAccessLayer
 
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -247,6 +247,134 @@ namespace ContactsDataAccessLayer
 
         }
 
+        public static int AddCountry(string CountryName, string Code, string PhoneCode)
+        {
+            int CountryID = -1;
+
+            SqlConnection connection = new SqlConnection(DataBaseAccessInfo.connectionString);
+
+            string query = @"INSERT INTO Countries
+           (CountryName,Code,PhoneCode)" + 
+            "VALUES (@CountryName,@Code,@PhoneCode);"
+            +"SELECT Scope_IDENTITY();";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@CountryName", CountryName);
+            if (Code != "")
+            {
+                cmd.Parameters.AddWithValue("@Code", Code);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@Code", DBNull.Value);
+            }
+            if (PhoneCode != "")
+            {
+                cmd.Parameters.AddWithValue("@PhoneCode", PhoneCode);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@PhoneCode", DBNull.Value);
+            }
+
+            try
+            {
+                connection.Open();
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int InsertedID))
+                    CountryID = InsertedID;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+
+            return CountryID;
+        }
+
+        public static bool DeleteCountry(int CountryID)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(DataBaseAccessInfo.connectionString);
+
+            string query = @"DELETE FROM Countries WHERE CountryID = @CountryID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            cmd.Parameters.AddWithValue("@CountryID", CountryID);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return rowsAffected > 0;    
+
+        }
+
+        public static bool UpdateCountry(int CountryID, string CountryName, string Code, string PhoneCode)
+        {
+            SqlConnection connection = new SqlConnection(DataBaseAccessInfo.connectionString);
+
+            string query = @"UPDATE Countries
+             SET CountryName = @CountryName
+                    ,Code = @Code
+                    ,PhoneCode = @PhoneCode, 
+                WHERE CountryID = @CountryID";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            int rowsAffected = 0;
+
+            cmd.Parameters.AddWithValue("@CountryID", CountryID);
+            cmd.Parameters.AddWithValue("@CountryName", CountryName);
+            if (Code != "")
+            {
+                cmd.Parameters.AddWithValue("@Code", Code);
+            }
+            else
+            {
+                cmd.Parameters.AddWithValue("@Code", DBNull.Value);
+            }
+
+                try
+                {
+                    connection.Open();
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+            return rowsAffected > 0;
+
+        }
 
     }
 }
