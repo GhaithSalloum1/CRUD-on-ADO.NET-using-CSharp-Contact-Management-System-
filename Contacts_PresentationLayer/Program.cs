@@ -103,11 +103,81 @@ namespace Contacts_PresentationLayer
                 Console.WriteLine("Contact Does Not Exist.");
         }
 
+        static void testFindCountryByID(int ID)
+
+        {
+            clsCountry Country1 = clsCountry.Find(ID);
+
+            if (Country1 != null)
+            {
+                Console.WriteLine(Country1.CountryName);
+
+            }
+
+            else
+            {
+                Console.WriteLine("Country [" + ID + "] Not found!");
+            }
+        }
+
+
+        static void testFindCountryByName(string CountryName)
+
+        {
+            clsCountry Country1 = clsCountry.Find(CountryName);
+
+            if (Country1 != null)
+            {
+                Console.WriteLine("Country [" + CountryName + "] isFound with ID = " + Country1.ID);
+
+            }
+
+            else
+            {
+                Console.WriteLine("Country [" + CountryName + "] Is Not found!");
+            }
+        }
+
+
+        static void testIsCountryExistByID(int ID)
+
+        {
+
+            if (clsCountry.isCountryExist(ID))
+
+                Console.WriteLine("Yes, Country is there.");
+
+            else
+                Console.WriteLine("No, Country Is not there.");
+
+        }
+
+        static void testIsCountryExistByName(string CountryName)
+
+        {
+
+            if (clsCountry.isCountryExist(CountryName))
+
+                Console.WriteLine("Yes, Country is there.");
+
+            else
+                Console.WriteLine("No, Country Is not there.");
+
+        }
+
         static void Main(string[] args)
         {
 
-            isContactExist(1);
-            isContactExist(100);
+            testFindCountryByID(1);
+            testFindCountryByID(100);
+            testFindCountryByName("United States");
+            testFindCountryByName("UK");
+
+            testIsCountryExistByID(1);
+            testIsCountryExistByID(100);
+
+            testIsCountryExistByName("United States");
+            testIsCountryExistByName("UK");
             Console.ReadKey();
 
         }

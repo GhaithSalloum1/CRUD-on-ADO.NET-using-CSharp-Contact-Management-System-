@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
-using ConsoleApp1;
 using System.Data;
 
 namespace ContactsDataAccessLayer
