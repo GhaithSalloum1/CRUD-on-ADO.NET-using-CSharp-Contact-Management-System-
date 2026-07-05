@@ -208,5 +208,45 @@ namespace ContactsDataAccessLayer
             return isFound;
 
         }
+        public static DataTable GetAllCountries()
+        {
+
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataBaseAccessInfo.connectionString);
+
+            string query = "SELECT * FROM Countries order by CountryName";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+
+
+            }
+
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+
+        }
+
+
     }
 }

@@ -74,5 +74,10 @@ namespace ContactsBusinessLayer
             return CountriesData.isCountryExist(CountryName);
         }
 
+        public static DataTable GetAllCountries()
+        {
+            return CountriesData.GetAllCountries();
+        }
+
     }
 }

@@ -165,19 +165,36 @@ namespace Contacts_PresentationLayer
 
         }
 
+        static void ListCountries()
+        {
+
+            DataTable dataTable = clsCountry.GetAllCountries();
+
+            Console.WriteLine("Coutries Data:");
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine($"{row["CountryID"]},  {row["CountryName"]} , {row["Code"]}, {row["PhoneCode"]}");
+            }
+
+        }
+
         static void Main(string[] args)
         {
 
-            testFindCountryByID(1);
-            testFindCountryByID(100);
-            testFindCountryByName("United States");
-            testFindCountryByName("UK");
+            //testFindCountryByID(1);
+            //testFindCountryByID(100);
+            //testFindCountryByName("United States");
+            //testFindCountryByName("UK");
 
-            testIsCountryExistByID(1);
-            testIsCountryExistByID(100);
+            //testIsCountryExistByID(1);
+            //testIsCountryExistByID(100);
 
-            testIsCountryExistByName("United States");
-            testIsCountryExistByName("UK");
+            //testIsCountryExistByName("United States");
+            //testIsCountryExistByName("UK");
+
+            ListCountries();
+
             Console.ReadKey();
 
         }
