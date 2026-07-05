@@ -17,7 +17,7 @@ namespace ContactsDataAccessLayer
 
             SqlConnection connection = new SqlConnection(DataBaseAccessInfo.connectionString);
 
-            string query = @"SELECT * FROM Countries WHERE ID = @ID";
+            string query = @"SELECT * FROM Countries WHERE CountryID = @ID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -41,10 +41,10 @@ namespace ContactsDataAccessLayer
                 reader.Close();
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 isFound = false;
-                throw;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -77,7 +77,7 @@ namespace ContactsDataAccessLayer
                 if (reader.Read())
                 {
                     isFound = true;
-                    ID = Convert.ToInt32(reader["ID"]);
+                    ID = Convert.ToInt32(reader["CountryID"]);
                 }
                 else
                 {
@@ -108,7 +108,7 @@ namespace ContactsDataAccessLayer
 
             SqlConnection connection = new SqlConnection(DataBaseAccessInfo.connectionString);
 
-            string query = @"SELECT 1 FROM Countries WHERE ID = @ID";
+            string query = @"SELECT 1 FROM Countries WHERE CountryID = @ID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
