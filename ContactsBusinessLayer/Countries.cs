@@ -1,5 +1,6 @@
 ﻿using ContactsDataAccessLayer;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -34,8 +35,10 @@ namespace ContactsBusinessLayer
 
 
             string CountryName = "";
+            string Code = "";
+            string PhoneCode = ""; 
             ID = -1;
-            if(CountriesData.getCountryInfoByID(ID, ref CountryName))
+            if(CountriesData.getCountryInfoByID(ID, ref CountryName, ref Code, ref PhoneCode))
             {
                 return new clsCountry(ID, CountryName);
             }
@@ -48,8 +51,10 @@ namespace ContactsBusinessLayer
         public static clsCountry Find(string CountryName)
         {
             int ID = -1;
+            string Code = "";
+            string PhoneCode = "";
 
-            if (CountriesData.getCountryInfoByName(CountryName,ref ID))
+            if (CountriesData.getCountryInfoByName(CountryName, ref ID, ref Code, ref PhoneCode))
             {
                 return new clsCountry(ID, CountryName);
             }

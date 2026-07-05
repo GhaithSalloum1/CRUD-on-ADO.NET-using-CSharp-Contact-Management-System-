@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Common;
 
 namespace ContactsDataAccessLayer
 {
     public class CountriesData
     {
-        public static bool getCountryInfoByID(int ID, ref string countryName)
+        public static bool getCountryInfoByID(int ID, ref string countryName,ref string Code, ref string PhoneCode)
         {
 
             bool isFound = false;
@@ -32,6 +33,23 @@ namespace ContactsDataAccessLayer
                 {
                     isFound = true;
                     countryName = reader["CountryName"].ToString();
+                    if (reader["Code"] != DBNull.Value)
+                    {
+                        Code = (string)reader["Code"];
+                    }
+                    else
+                    {
+                        Code = "";
+                    }
+
+                    if (reader["PhoneCode"] != DBNull.Value)
+                    {
+                        PhoneCode = (string)reader["PhoneCode"];
+                    }
+                    else
+                    {
+                        PhoneCode = "";
+                    }
                 }
                 else
                 {
@@ -55,7 +73,7 @@ namespace ContactsDataAccessLayer
 
         }
 
-        public static bool getCountryInfoByName(string CountryName, ref int ID)
+        public static bool getCountryInfoByName(string CountryName, ref int ID, ref string Code, ref string PhoneCode)
         {
 
             SqlConnection connection = new SqlConnection(DataBaseAccessInfo.connectionString);
@@ -78,6 +96,24 @@ namespace ContactsDataAccessLayer
                 {
                     isFound = true;
                     ID = Convert.ToInt32(reader["CountryID"]);
+                    if (reader["Code"] != DBNull.Value)
+                    {
+                        Code = (string)reader["Code"];
+                    }
+                    else
+                    {
+                        Code = "";
+                    }
+
+                    if (reader["PhoneCode"] != DBNull.Value)
+                    {
+                        PhoneCode = (string)reader["PhoneCode"];
+                    }
+                    else
+                    {
+                        PhoneCode = "";
+                    }
+
                 }
                 else
                 {
